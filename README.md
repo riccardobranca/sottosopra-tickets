@@ -1,23 +1,33 @@
 # sottosopra-tickets
 
-Landing biglietti per i **manifesti** del festival Sottosopra 2026, una per città (per il tracking via QR).
+Landing biglietti del festival Sottosopra 2026, riusabile come **link-in-bio / hub biglietti** su più canali.
 Servita su **https://tickets.sottosopra.com** (GitHub Pages + record CNAME su Porkbun).
 
-## Come funziona
-- `_template.html` = modello unico. Contiene il token `__CITTA__` negli UTM dei link DICE.
-- Ogni città è una cartella: `/<città>/index.html` → URL `https://tickets.sottosopra.com/<città>`.
-- Stessa pagina per tutte; cambia solo `utm_campaign=<città>` → DICE attribuisce gli acquisti per città, e Cloudflare Web Analytics conta le scansioni per città (la pageview di `/<città>`).
-- I **QR** stanno in `/qr/<città>.svg` e codificano l'URL della città. Puntano al *nostro* dominio: i link DICE dietro si possono cambiare senza ristampare.
+## Modello: una pagina per CANALE (non più per città)
+Stessa landing, declinata per **scopo/canale**, così sappiamo da dove arrivano i click. Cambia solo l'UTM dei link DICE.
 
-## Aggiungere una città (es. "padova")
+| URL | Canale | UTM (source / medium) | QR? |
+|---|---|---|---|
+| `/manifesti` | Manifesti (QR unico su tutti) | `manifesto` / `qr` | ✅ `qr/manifesti.svg` |
+| `/locandine` | Locandine / flyer | `locandina` / `qr` | ✅ `qr/locandine.svg` |
+| `/ig` | Link-in-bio Instagram (al posto di Linktree) | `instagram` / `bio` | — (link cliccabile) |
+| `/` | Accesso diretto / generico | `tickets` / `direct` | — |
+
+- I QR puntano al **nostro** dominio → i link DICE dietro si cambiano senza ristampare.
+- DICE attribuisce gli acquisti per canale (UTM); Cloudflare Web Analytics conta le aperture per path.
+- ⚠️ Niente più dettaglio per-comune (scelta di costo stampa: un solo QR su tutti i manifesti).
+
+## Aggiungere un canale (es. "newsletter")
 ```bash
-mkdir -p padova
-sed 's/__CITTA__/padova/g' _template.html > padova/index.html
-qrencode -t SVG -o qr/padova.svg "https://tickets.sottosopra.com/padova"
-git add -A && git commit -m "Aggiunta città: padova" && git push
+mkdir -p newsletter
+sed -e 's/__SRC__/newsletter/g' -e 's/__MED__/email/g' _template.html > newsletter/index.html
+# (QR solo se serve stamparlo)
+qrencode -t SVG -o qr/newsletter.svg "https://tickets.sottosopra.com/newsletter"
+git add -A && git commit -m "Canale: newsletter" && git push
 ```
 
 ## ⚠️ Regole
-- Il sottodominio `tickets.sottosopra.com` è **stampato nei QR** → non cambiarlo mai.
-- **Non stampare** un manifesto finché la sua landing non risponde e il QR non è stato **scansionato per davvero** da un telefono.
-- Giovedì 30 (gratis) per ora NON è incluso (nessun evento DICE).
+- `tickets.sottosopra.com` è **stampato nei QR** → non cambiarlo mai.
+- **Non stampare** finché la landing non risponde e il QR non è stato **scansionato davvero** da un telefono.
+- Mai committare segreti (chiavi/token). Il token di Cloudflare Web Analytics è pubblico per design: ok.
+- Giovedì 30 (gratis) per ora NON incluso (nessun evento DICE).
