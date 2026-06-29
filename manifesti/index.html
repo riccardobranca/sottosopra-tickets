@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Sottosopra 2026 — Biglietti</title>
-<meta name="description" content="Sottosopra Festival 2026 · 31 luglio — 2 agosto · Giardini Sud-Ovest del Castello, Castelfranco Veneto. Biglietti su DICE.">
+<meta name="description" content="Sottosopra Festival 2026 · 30 luglio — 2 agosto · Giardini Sud-Ovest del Castello, Castelfranco Veneto. Biglietti su DICE.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -17,10 +17,10 @@ html{-webkit-text-size-adjust:100%}
 body{
   background:var(--bg); color:var(--fg); font-family:var(--body); font-size:16px; line-height:1.5;
   -webkit-font-smoothing:antialiased; min-height:100svh;
-  padding:max(26px,env(safe-area-inset-top)) 22px calc(20px + env(safe-area-inset-bottom));
+  padding:max(26px,env(safe-area-inset-top)) 22px calc(24px + env(safe-area-inset-bottom));
   display:flex; flex-direction:column;
 }
-.wrap{width:100%; max-width:480px; margin:0 auto; display:flex; flex-direction:column; flex:1}
+.wrap{width:100%; max-width:480px; margin:0 auto; display:flex; flex-direction:column}
 a{color:inherit; text-decoration:none}
 
 /* HOOK — grande testo giustificato edge-to-edge (firma manifesto ufficiale) */
@@ -28,7 +28,20 @@ a{color:inherit; text-decoration:none}
   font-family:var(--display); font-feature-settings:var(--ss); font-weight:900; text-transform:uppercase;
   font-size:clamp(2rem,10.5vw,3.2rem); line-height:1.03; letter-spacing:-.012em;
   text-align:justify; text-align-last:justify; text-justify:inter-character;
-  margin-bottom:30px;
+  margin-bottom:22px;
+}
+
+/* INTRO — date sx / luogo dx + wordmark SOTTOSOPRA ruotato 180° (sotto la frase) */
+.intro{margin-bottom:34px}
+.meta{display:flex; justify-content:space-between; align-items:flex-start; gap:18px;
+  font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; line-height:1.45; color:var(--fg)}
+.meta .r{text-align:right}
+.brandword{
+  margin-top:16px;
+  font-family:var(--display); font-feature-settings:var(--ss); font-weight:900; text-transform:uppercase;
+  font-size:clamp(1.4rem,6.6vw,2.2rem); line-height:1; letter-spacing:0;
+  text-align:justify; text-align-last:justify; text-justify:inter-character;
+  transform:rotate(180deg);
 }
 
 /* BOTTONI giornata — B/N squadrati */
@@ -51,20 +64,14 @@ a{color:inherit; text-decoration:none}
 }
 .fullpass:hover,.fullpass:focus-visible{opacity:.82}
 
-.more{display:flex; justify-content:center; gap:24px; flex-wrap:wrap; padding:22px 0 6px}
+.more{display:flex; justify-content:center; gap:24px; flex-wrap:wrap; padding-top:24px}
 .more a{font-size:.76rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); padding:6px 2px; transition:color .18s}
 .more a:hover,.more a:focus-visible{color:var(--fg)}
 
-/* PIEDE — date sx / luogo dx, poi wordmark capovolto (firma manifesto) */
-.foot{margin-top:auto; padding-top:24px}
-.meta{display:flex; justify-content:space-between; align-items:flex-end; gap:18px;
-  font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; line-height:1.4}
-.meta .r{text-align:right; color:var(--muted)}
-.brandflip{
-  margin-top:16px; text-align:center;
-  font-family:var(--display); font-feature-settings:var(--ss); font-weight:900; text-transform:uppercase;
-  font-size:clamp(1.5rem,7vw,2.4rem); letter-spacing:.03em; line-height:1; transform:scaleY(-1);
-}
+/* LOGO VERO in fondo, sotto i link (stessa distanza del gap link↔full pass) */
+.logo-bottom{margin-top:24px; text-align:center}
+.logo-bottom img{height:24px; width:auto}
+
 a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -74,9 +81,16 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 
   <h1 class="hook">Non hai ancora preso i biglietti?</h1>
 
+  <div class="intro">
+    <div class="meta">
+      <span>30 luglio,<br>1 e 2 agosto 2026</span>
+      <span class="r">Castelfranco Veneto,<br>Giardini Sud-Ovest del Castello</span>
+    </div>
+    <div class="brandword" aria-hidden="true">Sottosopra</div>
+  </div>
+
   <!-- BOTTONI → DICE. Attribuzione canale = link.dice.fm nativi (uno per canale×evento, da MIO › Marketing).
-       Ora URL evento diretti (placeholder funzionante) → sostituire coi link.dice.fm del canale manifesto.
-       data-umami-event-* = click-tracking lato nostro (Umami). -->
+       Ora URL evento diretti (placeholder funzionante) → sostituire coi link.dice.fm del canale manifesto. -->
   <nav class="days" aria-label="Biglietti per giornata">
     <a class="day" href="https://dice.fm/event/536ewl" target="_blank" rel="noopener"
        data-umami-event="dice-click" data-umami-event-canale="manifesto" data-umami-event-giorno="venerdi">
@@ -106,12 +120,8 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
     <a href="mailto:info@sottosopra.com">Newsletter</a>
   </nav>
 
-  <div class="foot">
-    <div class="meta">
-      <span>31 luglio,<br>1 e 2 agosto 2026</span>
-      <span class="r">Giardini Sud-Ovest del Castello<br>Castelfranco Veneto</span>
-    </div>
-    <div class="brandflip">Sottosopra</div>
+  <div class="logo-bottom">
+    <img src="/brand/sottosopra-logo-black.png" alt="Sottosopra">
   </div>
 
 </main>
