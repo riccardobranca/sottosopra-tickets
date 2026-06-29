@@ -84,10 +84,14 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
     </p>
   </header>
 
-  <!-- UTM per CANALE: manifesto/qr sostituiti in generazione (manifesto/qr · locandina/qr · instagram/bio · tickets/direct). URL DICE reali 2026. -->
+  <!-- BOTTONI → DICE. NB: l'attribuzione vendite per canale si fa con i LINK DI TRACCIAMENTO NATIVI di DICE
+       (link.dice.fm/...), uno per canale×evento, da creare in MIO › Marketing. Qui sotto per ora ci sono gli URL
+       evento diretti (funzionano, ma non attribuiscono il canale): sostituire con i link.dice.fm/... del canale manifesto.
+       data-umami-event-* = click-tracking lato nostro (Umami), indipendente da DICE. -->
   <nav class="days" aria-label="Biglietti per giornata">
 
-    <a class="day" href="https://dice.fm/event/536ewl?utm_source=manifesto&utm_medium=qr" target="_blank" rel="noopener">
+    <a class="day" href="https://dice.fm/event/536ewl" target="_blank" rel="noopener"
+       data-umami-event="dice-click" data-umami-event-canale="manifesto" data-umami-event-giorno="venerdi">
       <span class="l">
         <span class="dlabel">Ven 31·07</span>
         <span class="dsub">Generic Animal · Degheio · Krano · Cavalli Mongoli</span>
@@ -95,7 +99,8 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
       <span class="act">Biglietti <span class="arr">↗</span></span>
     </a>
 
-    <a class="day" href="https://dice.fm/event/xeombl?utm_source=manifesto&utm_medium=qr" target="_blank" rel="noopener">
+    <a class="day" href="https://dice.fm/event/xeombl" target="_blank" rel="noopener"
+       data-umami-event="dice-click" data-umami-event-canale="manifesto" data-umami-event-giorno="sabato">
       <span class="l">
         <span class="dlabel">Sab 01·08</span>
         <span class="dsub">Vendredi sur Mer · Popa · Faccianuvola</span>
@@ -103,7 +108,8 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
       <span class="act">Biglietti <span class="arr">↗</span></span>
     </a>
 
-    <a class="day" href="https://dice.fm/event/3ox2ml?utm_source=manifesto&utm_medium=qr" target="_blank" rel="noopener">
+    <a class="day" href="https://dice.fm/event/3ox2ml" target="_blank" rel="noopener"
+       data-umami-event="dice-click" data-umami-event-canale="manifesto" data-umami-event-giorno="domenica">
       <span class="l">
         <span class="dlabel">Dom 02·08</span>
         <span class="dsub">Ex-Otago · Auroro Borealo · Jesse the Faccio</span>
@@ -113,7 +119,8 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 
   </nav>
 
-  <a class="fullpass" href="https://dice.fm/event/v3nam7?utm_source=manifesto&utm_medium=qr" target="_blank" rel="noopener">
+  <a class="fullpass" href="https://dice.fm/event/v3nam7" target="_blank" rel="noopener"
+     data-umami-event="dice-click" data-umami-event-canale="manifesto" data-umami-event-giorno="fullpass">
     Tutti i giorni · Full Pass ↗
   </a>
 
@@ -129,8 +136,11 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 
 </main>
 
-<!-- Cloudflare Web Analytics (cookieless): sostituire __CF_BEACON_TOKEN__ col token dell'account.
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"__CF_BEACON_TOKEN__"}'></script>
+<!-- ANALYTICS (cookieless, da attivare quando esistono gli account) ===========================
+     1) Cloudflare Web Analytics → pageview/scansioni per pagina:
+     <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"__CF_BEACON_TOKEN__"}'></script>
+     2) Umami Cloud (region UE) → click-out verso DICE per giornata/canale (i data-umami-event-* qui sopra):
+     <script defer src="https://cloud.umami.is/script.js" data-website-id="__UMAMI_ID__"></script>
 -->
 </body>
 </html>
