@@ -5,71 +5,66 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Sottosopra 2026 — Biglietti</title>
-<meta name="description" content="Sottosopra Festival 2026 · 30 luglio — 2 agosto · Giardini del Castello, Castelfranco Veneto. Biglietti su DICE.">
+<meta name="description" content="Sottosopra Festival 2026 · 31 luglio — 2 agosto · Giardini Sud-Ovest del Castello, Castelfranco Veneto. Biglietti su DICE.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-@font-face{
-  font-family:"SoSo26";
-  src:url("/fonts/SoSo26.woff") format("woff");
-  font-weight:400 900; font-display:swap;
-}
-:root{
-  --bg:#000; --fg:#fff; --muted:#9a9a9a; --line:#2a2a2a;
-  --display:"SoSo26","Arial Narrow",sans-serif;
-  --body:"Inter",system-ui,-apple-system,sans-serif;
-  --ss:"ss07","ss08","liga","calt";
-}
+@font-face{font-family:"SoSo26";src:url("/fonts/SoSo26.woff") format("woff");font-weight:400 900;font-display:swap}
+:root{--bg:#fff; --fg:#000; --muted:#6b6b6b; --display:"SoSo26","Arial Narrow",sans-serif; --body:"Inter",system-ui,sans-serif; --ss:"ss07","ss08","liga","calt"}
 *{margin:0;padding:0;box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{
-  background:var(--bg); color:var(--fg);
-  font-family:var(--body); font-size:16px; line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-  min-height:100svh;
-  padding:max(28px,env(safe-area-inset-top)) 20px calc(28px + env(safe-area-inset-bottom));
-  display:flex; flex-direction:column; align-items:center;
+  background:var(--bg); color:var(--fg); font-family:var(--body); font-size:16px; line-height:1.5;
+  -webkit-font-smoothing:antialiased; min-height:100svh;
+  padding:max(26px,env(safe-area-inset-top)) 22px calc(20px + env(safe-area-inset-bottom));
+  display:flex; flex-direction:column;
 }
-.wrap{width:100%; max-width:460px; margin:auto 0; display:flex; flex-direction:column; gap:28px}
+.wrap{width:100%; max-width:480px; margin:0 auto; display:flex; flex-direction:column; flex:1}
 a{color:inherit; text-decoration:none}
-.head{display:flex; flex-direction:column; align-items:center; text-align:center; gap:24px; padding-top:8px}
-.brand{display:flex; flex-direction:column; align-items:center; gap:12px}
-.when{display:flex; flex-direction:column; align-items:center; gap:6px}
-.head img{height:26px; width:auto}
-.claim{
-  font-family:var(--display); font-feature-settings:var(--ss);
-  font-weight:900; text-transform:uppercase; line-height:.92;
-  font-size:clamp(2.4rem,13vw,3.2rem); letter-spacing:-.01em;
+
+/* HOOK — grande testo giustificato edge-to-edge (firma manifesto ufficiale) */
+.hook{
+  font-family:var(--display); font-feature-settings:var(--ss); font-weight:900; text-transform:uppercase;
+  font-size:clamp(2rem,10.5vw,3.2rem); line-height:1.03; letter-spacing:-.012em;
+  text-align:justify; text-align-last:justify; text-justify:inter-character;
+  margin-bottom:30px;
 }
-.dates{font-family:var(--display); font-feature-settings:var(--ss); font-weight:900; text-transform:uppercase; font-size:clamp(1.6rem,8vw,2.3rem); line-height:1; letter-spacing:.005em}
-.place{font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); line-height:1.7}
-.days{display:flex; flex-direction:column; gap:12px}
+
+/* BOTTONI giornata — B/N squadrati */
+.days{display:flex; flex-direction:column; gap:11px}
 .day{
   display:flex; align-items:center; justify-content:space-between; gap:14px;
-  border:1px solid var(--fg); background:transparent; color:var(--fg);
-  padding:16px 18px; min-height:64px;
-  transition:background .2s ease, color .2s ease;
+  border:1.5px solid var(--fg); background:var(--bg); color:var(--fg);
+  padding:15px 17px; min-height:62px; transition:background .18s ease, color .18s ease;
 }
 .day:hover,.day:focus-visible{background:var(--fg); color:var(--bg)}
 .day .l{display:flex; flex-direction:column; gap:3px; text-align:left}
-.day .dlabel{font-family:var(--display); font-feature-settings:var(--ss); font-weight:900; text-transform:uppercase; font-size:1.45rem; line-height:1}
-.day .dsub{font-size:.92rem; color:var(--fg); text-transform:uppercase; letter-spacing:.01em; font-weight:500; line-height:1.32}
-.day:hover .dsub,.day:focus-visible .dsub{color:rgba(0,0,0,.65)}
+.day .dlabel{font-family:var(--display); font-feature-settings:var(--ss); font-weight:900; text-transform:uppercase; font-size:1.4rem; line-height:1}
+.day .dsub{font-size:.86rem; text-transform:uppercase; letter-spacing:.01em; font-weight:500; line-height:1.3}
 .day .act{font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; white-space:nowrap; display:inline-flex; align-items:center; gap:6px}
 .day .arr{font-family:var(--display); font-feature-settings:var(--ss); font-weight:900; font-size:.95rem}
 .fullpass{
-  display:flex; align-items:center; justify-content:center; gap:8px;
-  border:1px solid var(--fg); background:var(--fg); color:var(--bg); padding:16px; min-height:60px;
-  font-size:.82rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em;
-  transition:opacity .2s;
+  display:flex; align-items:center; justify-content:center; gap:8px; margin-top:11px;
+  border:1.5px solid var(--fg); background:var(--fg); color:var(--bg); padding:15px; min-height:58px;
+  font-size:.82rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; transition:opacity .18s;
 }
 .fullpass:hover,.fullpass:focus-visible{opacity:.82}
-.more{display:flex; justify-content:center; gap:22px; flex-wrap:wrap; padding-top:4px}
-.more a{font-size:.78rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); padding:8px 2px; transition:color .2s}
+
+.more{display:flex; justify-content:center; gap:24px; flex-wrap:wrap; padding:22px 0 6px}
+.more a{font-size:.76rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); padding:6px 2px; transition:color .18s}
 .more a:hover,.more a:focus-visible{color:var(--fg)}
-footer{text-align:center; font-size:.68rem; letter-spacing:.06em; color:var(--muted); line-height:1.8; padding-top:8px}
-footer a{color:var(--muted); border-bottom:1px solid var(--line)}
+
+/* PIEDE — date sx / luogo dx, poi wordmark capovolto (firma manifesto) */
+.foot{margin-top:auto; padding-top:24px}
+.meta{display:flex; justify-content:space-between; align-items:flex-end; gap:18px;
+  font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; line-height:1.4}
+.meta .r{text-align:right; color:var(--muted)}
+.brandflip{
+  margin-top:16px; text-align:center;
+  font-family:var(--display); font-feature-settings:var(--ss); font-weight:900; text-transform:uppercase;
+  font-size:clamp(1.5rem,7vw,2.4rem); letter-spacing:.03em; line-height:1; transform:scaleY(-1);
+}
 a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -77,50 +72,27 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 <body>
 <main class="wrap">
 
-  <header class="head">
-    <div class="brand">
-      <img src="/brand/sottosopra-logo-white.png" alt="Sottosopra">
-      <h1 class="claim">SoSo26</h1>
-    </div>
-    <div class="when">
-      <p class="dates">30 Lug — 2 Ago 2026</p>
-      <p class="place">Giardini Sud-Ovest del Castello<br>Castelfranco Veneto</p>
-    </div>
-  </header>
+  <h1 class="hook">Non hai ancora preso i biglietti?</h1>
 
-  <!-- BOTTONI → DICE. NB: l'attribuzione vendite per canale si fa con i LINK DI TRACCIAMENTO NATIVI di DICE
-       (link.dice.fm/...), uno per canale×evento, da creare in MIO › Marketing. Qui sotto per ora ci sono gli URL
-       evento diretti (funzionano, ma non attribuiscono il canale): sostituire con i link.dice.fm/... del canale tickets.
-       data-umami-event-* = click-tracking lato nostro (Umami), indipendente da DICE. -->
+  <!-- BOTTONI → DICE. Attribuzione canale = link.dice.fm nativi (uno per canale×evento, da MIO › Marketing).
+       Ora URL evento diretti (placeholder funzionante) → sostituire coi link.dice.fm del canale tickets.
+       data-umami-event-* = click-tracking lato nostro (Umami). -->
   <nav class="days" aria-label="Biglietti per giornata">
-
     <a class="day" href="https://dice.fm/event/536ewl" target="_blank" rel="noopener"
        data-umami-event="dice-click" data-umami-event-canale="tickets" data-umami-event-giorno="venerdi">
-      <span class="l">
-        <span class="dlabel">Ven 31·07</span>
-        <span class="dsub">Generic Animal · Degheio · Krano · Cavalli Mongoli</span>
-      </span>
+      <span class="l"><span class="dlabel">Ven 31·07</span><span class="dsub">Generic Animal · Degheio · Krano · Cavalli Mongoli</span></span>
       <span class="act">Biglietti <span class="arr">↗</span></span>
     </a>
-
     <a class="day" href="https://dice.fm/event/xeombl" target="_blank" rel="noopener"
        data-umami-event="dice-click" data-umami-event-canale="tickets" data-umami-event-giorno="sabato">
-      <span class="l">
-        <span class="dlabel">Sab 01·08</span>
-        <span class="dsub">Vendredi sur Mer · Popa · Faccianuvola</span>
-      </span>
+      <span class="l"><span class="dlabel">Sab 01·08</span><span class="dsub">Vendredi sur Mer · Popa · Faccianuvola</span></span>
       <span class="act">Biglietti <span class="arr">↗</span></span>
     </a>
-
     <a class="day" href="https://dice.fm/event/3ox2ml" target="_blank" rel="noopener"
        data-umami-event="dice-click" data-umami-event-canale="tickets" data-umami-event-giorno="domenica">
-      <span class="l">
-        <span class="dlabel">Dom 02·08</span>
-        <span class="dsub">Ex-Otago · Auroro Borealo · Jesse the Faccio</span>
-      </span>
+      <span class="l"><span class="dlabel">Dom 02·08</span><span class="dsub">Ex-Otago · Auroro Borealo · Jesse the Faccio</span></span>
       <span class="act">Biglietti <span class="arr">↗</span></span>
     </a>
-
   </nav>
 
   <a class="fullpass" href="https://dice.fm/event/v3nam7" target="_blank" rel="noopener"
@@ -134,13 +106,17 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
     <a href="mailto:info@sottosopra.com">Newsletter</a>
   </nav>
 
-  <footer>
-    Sottosopra APS · <a href="mailto:info@sottosopra.com">info@sottosopra.com</a>
-  </footer>
+  <div class="foot">
+    <div class="meta">
+      <span>31 luglio,<br>1 e 2 agosto 2026</span>
+      <span class="r">Giardini Sud-Ovest del Castello<br>Castelfranco Veneto</span>
+    </div>
+    <div class="brandflip">Sottosopra</div>
+  </div>
 
 </main>
 
-<!-- Umami Cloud (cookieless) — pageview per canale + click-out su DICE (vedi data-umami-event-* sopra) -->
+<!-- Umami Cloud (cookieless, region UE) — pageview per canale + click-out DICE -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="8b654c64-e3bb-4076-96a2-51ddfd53858f" data-domains="tickets.sottosopra.com"></script>
 </body>
 </html>
