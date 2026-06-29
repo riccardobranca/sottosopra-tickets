@@ -26,10 +26,12 @@ a{color:inherit; text-decoration:none}
 /* HOOK — grande testo giustificato edge-to-edge (firma manifesto ufficiale) */
 .hook{
   font-family:var(--display); font-feature-settings:var(--ss); font-weight:900; text-transform:uppercase;
-  font-size:clamp(2rem,10.5vw,3.2rem); line-height:1.03; letter-spacing:-.012em;
-  text-align:justify; text-align-last:justify; text-justify:inter-character;
+  font-size:clamp(2rem,10.5vw,3.2rem); line-height:1.06; letter-spacing:-.012em;
+  text-align:justify; text-align-last:justify; /* fallback senza JS */
   margin-bottom:22px;
 }
+.hook .ln{display:flex; justify-content:space-between; align-items:baseline; line-height:1.06}
+.hook .ln .sp{flex:0 0 .3em}
 
 /* INTRO — date sx / luogo dx + wordmark SOTTOSOPRA ruotato 180° (sotto la frase) */
 .intro{margin-bottom:34px}
@@ -78,7 +80,7 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 <body>
 <main class="wrap">
 
-  <h1 class="hook">Non hai ancora preso i biglietti?</h1>
+  <h1 class="hook" aria-label="Non hai ancora preso i biglietti?">Non hai ancora preso i biglietti?</h1>
 
   <div class="intro">
     <div class="meta">
@@ -124,6 +126,34 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
   </div>
 
 </main>
+
+<!-- Distribuisce le lettere della frase grande edge-to-edge, riga per riga (cross-browser, anche Safari) -->
+<script>
+(function(){
+  function esc(c){ return c==='&'?'&amp;':c==='<'?'&lt;':c; }
+  function build(el){
+    try{
+      var text = el.getAttribute('data-text');
+      if(text===null){ text = el.textContent.replace(/\s+/g,' ').trim(); el.setAttribute('data-text', text); }
+      // pass 1: parole inline → rilevo le righe reali (dopo il wrapping)
+      el.innerHTML = text.split(' ').map(function(w){ return '<span class="w">'+w+'</span>'; }).join(' ');
+      var ws = [].slice.call(el.children), lines=[], cur=[], top=null;
+      ws.forEach(function(s){ var t=s.offsetTop; if(top===null)top=t; if(t-top>2){lines.push(cur);cur=[];top=t;} cur.push(s.textContent); });
+      if(cur.length) lines.push(cur);
+      // pass 2: ogni riga = flex di lettere, giustificata edge-to-edge
+      el.innerHTML = lines.map(function(lw){
+        var line = lw.join(' '), inner='';
+        for(var k=0;k<line.length;k++){ var c=line[k]; inner += (c===' ') ? '<span class="sp"></span>' : '<span>'+esc(c)+'</span>'; }
+        return '<span class="ln">'+inner+'</span>';
+      }).join('');
+    }catch(e){ var d=el.getAttribute('data-text'); if(d) el.textContent=d; }
+  }
+  function run(){ [].forEach.call(document.querySelectorAll('.hook'), build); }
+  function ready(){ run(); if(document.fonts&&document.fonts.ready){ document.fonts.ready.then(run); } }
+  if(document.readyState!=='loading') ready(); else addEventListener('DOMContentLoaded', ready);
+  var tm; addEventListener('resize', function(){ clearTimeout(tm); tm=setTimeout(run,150); });
+})();
+</script>
 
 <!-- Umami Cloud (cookieless, region UE) — pageview per canale + click-out DICE -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="8b654c64-e3bb-4076-96a2-51ddfd53858f" data-domains="tickets.sottosopra.com"></script>
