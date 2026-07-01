@@ -4,17 +4,19 @@ Landing biglietti del festival Sottosopra 2026, riusabile come **link-in-bio / h
 Servita su **https://tickets.sottosopra.com** (GitHub Pages + record CNAME su Porkbun).
 
 ## Modello: una pagina per CANALE (non più per città)
-Stessa landing, declinata per **scopo/canale**, così sappiamo da dove arrivano i click. Cambia solo l'UTM dei link DICE.
+Stessa landing, declinata per **scopo/canale**, così sappiamo da dove arrivano i click. Ogni pagina ha i **suoi link di tracciamento DICE nativi** (`link.dice.fm`, uno per canale×giornata, creati in MIO › Marketing) → NON UTM sull'URL dice.fm (che DICE ignora).
 
-| URL | Canale | UTM (source / medium) | QR? |
+| URL | Canale | Link DICE (canale) | QR? |
 |---|---|---|---|
-| `/manifesti` | Manifesti (QR unico su tutti) | `manifesto` / `qr` | ✅ `qr/manifesti.svg` |
-| `/locandine` | Locandine / flyer | `locandina` / `qr` | ✅ `qr/locandine.svg` |
-| `/ig` | Link-in-bio Instagram (al posto di Linktree) | `instagram` / `bio` | — (link cliccabile) |
-| `/` | Accesso diretto / generico | `tickets` / `direct` | — |
+| `/manifesti` | Manifesti (QR unico su tutti) | `landing-manifesti` | ✅ `qr/manifesti.svg` |
+| `/locandine` | Locandine / flyer | `landing-locandine` | ✅ `qr/locandine.svg` |
+| `/ig-bio` | Link-in-bio Instagram (al posto di Linktree) | `landing-igbio` | — (link cliccabile) |
+| `/ig-story` | Sticker link nelle IG stories | `landing-igstory` | — (link sticker) |
+| `/` | Accesso diretto / generico | placeholder (eventi diretti) | — |
 
 - I QR puntano al **nostro** dominio → i link DICE dietro si cambiano senza ristampare.
-- DICE attribuisce gli acquisti per canale (UTM); Cloudflare Web Analytics conta le aperture per path.
+- Attribuzione acquisti per canale = **link.dice.fm nativi** (report in MIO, export CSV, ~1 mese di ritardo, cecità-app da scontare). Aperture/click per path = **Umami Cloud** (cookieless, UE).
+- I 4 link per canale (Ven · Sab · Dom · Full Pass) sono cablati nei bottoni di ogni pagina. Giovedì 30 escluso (nessun evento DICE).
 - ⚠️ Niente più dettaglio per-comune (scelta di costo stampa: un solo QR su tutti i manifesti).
 
 ## Aggiungere un canale (es. "newsletter")
