@@ -69,6 +69,23 @@ a{color:inherit; text-decoration:none}
 .more a{font-size:.76rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); padding:6px 2px; transition:color .18s}
 .more a:hover,.more a:focus-visible{color:var(--fg)}
 
+/* Divisore biglietti ↔ volontari (spesso quanto il bordo dei bottoni) */
+.divider{border:none; border-top:1.5px solid var(--fg); margin:20px 0}
+
+/* CREW — volontari: bottone SoSo26 grande, testo giustificato edge-to-edge (firma di brand) */
+.crew{
+  display:block; padding:15px 17px;
+  border:1.5px solid var(--fg); background:var(--bg); color:var(--fg);
+  transition:background .18s ease, color .18s ease;
+}
+.crew:hover,.crew:focus-visible{background:var(--fg); color:var(--bg)}
+.crew .jb{
+  display:flex; justify-content:space-between; align-items:baseline;
+  font-family:var(--display); font-feature-settings:var(--ss); font-weight:900;
+  text-transform:uppercase; font-size:1.4rem; line-height:1; letter-spacing:-.01em;
+}
+.crew .jb .sp{flex:0 0 .3em}
+
 /* LOGO VERO in fondo, sotto i link (stessa distanza del gap link↔full pass) */
 .logo-bottom{margin-top:24px; text-align:center}
 .logo-bottom img{height:24px; width:auto}
@@ -115,6 +132,13 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
     Tutti i giorni · Full Pass ↗
   </a>
 
+  <hr class="divider">
+
+  <a class="crew" href="https://docs.google.com/forms/d/e/1FAIpQLSdNFLBzYcVXNtxMin852inDK1e94G4w4NtJJOF727deTnUthg/viewform"
+     target="_blank" rel="noopener" aria-label="Diventa volontari"
+     data-umami-event="crew-click" data-umami-event-canale="ig-bio">
+    <span class="jb" aria-hidden="true"><span>D</span><span>I</span><span>V</span><span>E</span><span>N</span><span>T</span><span>A</span><span class="sp"></span><span>V</span><span>O</span><span>L</span><span>O</span><span>N</span><span>T</span><span>A</span><span>R</span><span>I</span><span>*</span><span>→</span></span>
+  </a>
 
   <div class="logo-bottom">
     <img src="/brand/sottosopra-logo-black.png" alt="Sottosopra">
