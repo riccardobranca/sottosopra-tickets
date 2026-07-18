@@ -12,7 +12,12 @@ Stessa landing, declinata per **scopo/canale**, così sappiamo da dove arrivano 
 | `/locandine` | Locandine / flyer | `landing-locandine` | ✅ `qr/locandine.svg` |
 | `/ig-bio` | Link-in-bio Instagram (al posto di Linktree) | `landing-igbio` | — (link cliccabile) |
 | `/ig-story` | Sticker link nelle IG stories | `landing-igstory` | — (link sticker) |
+| `/sito` | CTA "Biglietti" del sito sottosopra.com | canale sito | — |
+| `/nl-1` | Prima newsletter inviata (link nel corpo mail) | canale nl-1 | — |
+| `/newsletter` | Iscrizione newsletter (form Brevo, per storie IG) | — (nessun biglietto) | — |
 | `/` | Accesso diretto / generico | placeholder (eventi diretti) | — |
+
+Convenzione newsletter: ogni invio importante può avere il suo canale `nl-N` (nl-2, nl-3, …) con link DICE dedicati → si traccia la resa di ogni singola mail.
 
 - I QR puntano al **nostro** dominio → i link DICE dietro si cambiano senza ristampare.
 - Attribuzione acquisti per canale = **link.dice.fm nativi** (report in MIO, export CSV, ~1 mese di ritardo, cecità-app da scontare). Aperture/click per path = **Umami Cloud** (cookieless, UE).
