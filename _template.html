@@ -92,6 +92,42 @@ a{color:inherit; text-decoration:none}
 
 a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.cdwrap{background:var(--fg); color:var(--bg); padding:12px 17px; margin-bottom:22px}
+
+.cdrow{display:flex; justify-content:space-between; align-items:center;
+  font-family:var(--display); font-feature-settings:var(--ss); font-weight:900;
+  text-transform:uppercase; font-size:clamp(1.45rem,6.8vw,2.2rem); line-height:1}
+.cdbox{display:inline-flex; align-items:center; justify-content:center;
+  border:1.5px solid currentColor; padding:4px 14px; min-width:2.1em;
+  font-variant-numeric:tabular-nums}
+
+.cdwrap .cdbox{background:var(--bg); color:var(--fg); border-color:var(--bg)}
+.actions{display:grid; grid-template-columns:1fr 1fr; gap:11px; margin-top:11px}
+.acell{display:flex; flex-direction:column; gap:6px; align-items:flex-start; justify-content:center;
+  border:1.5px solid var(--fg); padding:16px 15px; min-height:76px;
+  transition:background .18s ease,color .18s ease}
+.acell:hover,.acell:focus-visible{background:var(--fg); color:var(--bg)}
+.acell .aw{font-family:var(--display); font-feature-settings:var(--ss); font-weight:900;
+  text-transform:uppercase; font-size:1.25rem; line-height:1}
+.acell .asub{font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em}
+
+/* Full Pass = riga come le serate, nera (stile home sito main) */
+.fp{margin-top:11px; background:var(--fg); color:var(--bg); border-color:var(--fg)}
+.fp:hover,.fp:focus-visible{background:var(--bg); color:var(--fg)}
+
+/* celle azioni: copy unico con freccia */
+.acell .aw{font-size:1.15rem; line-height:1.2}
+.acell .acar{font-family:var(--display)}
+
+/* slot reel dentro il box bianco */
+.cdbox{height:1.5em; padding:0; min-width:2.4em; overflow:hidden; align-items:flex-start}
+.reel{display:flex; flex-direction:column; will-change:transform}
+.reel span{display:flex; align-items:center; justify-content:center; height:1.5em}
+
+/* ritmo verticale: 11px intra-blocco · 22px tra sezioni */
+.actions{margin-top:22px}
+.logo-bottom{margin-top:22px}
 </style>
 </head>
 <body>
@@ -107,38 +143,44 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
     <div class="brandword" aria-hidden="true"><span>S</span><span>O</span><span>T</span><span>T</span><span>O</span><span>S</span><span>O</span><span>P</span><span>R</span><span>A</span></div>
   </div>
 
+  <div class="cdwrap" id="cdwrap" hidden>
+    <div class="cdrow"><span id="cdw1">MANCANO</span><span class="cdbox"><span class="reel" id="cdreel"><span>&nbsp;</span></span></span><span id="cdw2">GIORNI</span></div>
+  </div>
+
   <!-- BOTTONI → DICE. Attribuzione canale = link.dice.fm nativi (uno per canale×evento, da MIO › Marketing).
        Ora URL evento diretti (placeholder funzionante) → sostituire coi link.dice.fm del canale __SRC__. -->
   <nav class="days" aria-label="Biglietti per giornata">
     <a class="day" href="https://dice.fm/event/536ewl"
        data-umami-event="dice-click" data-umami-event-canale="__SRC__" data-umami-event-giorno="venerdi">
-      <span class="l"><span class="dlabel">Ven 31·07</span><span class="dsub">Generic Animal · Degheio · Krano · Cavalli Mongoli</span></span>
+      <span class="l"><span class="dlabel">Ven 31 Lug</span><span class="dsub">Degheįo · Generic Animal · Krano · Cavalli Mongoli</span></span>
       <span class="act">Biglietti <span class="arr">↗</span></span>
     </a>
     <a class="day" href="https://dice.fm/event/xeombl"
        data-umami-event="dice-click" data-umami-event-canale="__SRC__" data-umami-event-giorno="sabato">
-      <span class="l"><span class="dlabel">Sab 01·08</span><span class="dsub">Vendredi sur Mer · Popa · Faccianuvola</span></span>
+      <span class="l"><span class="dlabel">Sab 01 Ago</span><span class="dsub">Popa · Vendredi sur Mer · Faccianuvola</span></span>
       <span class="act">Biglietti <span class="arr">↗</span></span>
     </a>
     <a class="day" href="https://dice.fm/event/3ox2ml"
        data-umami-event="dice-click" data-umami-event-canale="__SRC__" data-umami-event-giorno="domenica">
-      <span class="l"><span class="dlabel">Dom 02·08</span><span class="dsub">Ex-Otago · Auroro Borealo · Jesse the Faccio</span></span>
+      <span class="l"><span class="dlabel">Dom 02 Ago</span><span class="dsub">Elasi · Jesse the Faccio · Auroro Borealo · Ex-Otago</span></span>
       <span class="act">Biglietti <span class="arr">↗</span></span>
     </a>
   </nav>
 
-  <a class="fullpass" href="https://dice.fm/event/v3nam7"
+  <a class="day fp" href="https://dice.fm/event/v3nam7"
      data-umami-event="dice-click" data-umami-event-canale="__SRC__" data-umami-event-giorno="fullpass">
-    Tutti i giorni · Full Pass ↗
+    <span class="l"><span class="dlabel">Full Pass</span><span class="dsub">Tutte le serate</span></span>
+    <span class="act">Biglietti <span class="arr">&#8599;</span></span>
   </a>
 
-  <hr class="divider">
-
-  <a class="wsbtn" href="https://www.tickettailor.com/events/sottosopra"
-     aria-label="Iscriviti ai workshop"
-     data-umami-event="workshop-click" data-umami-event-canale="__SRC__">
-    <span class="jb" aria-hidden="true"><span>I</span><span>S</span><span>C</span><span>R</span><span>I</span><span>V</span><span>I</span><span>T</span><span>I</span><span class="sp"></span><span>A</span><span>I</span><span class="sp"></span><span>W</span><span>O</span><span>R</span><span>K</span><span>S</span><span>H</span><span>O</span><span>P</span><span>→</span></span>
-  </a>
+  <div class="actions">
+    <a class="acell" href="https://www.tickettailor.com/events/sottosopra" data-umami-event="workshop-click" data-umami-event-canale="__SRC__">
+      <span class="aw">Iscrizione workshop <span class="acar">&rarr;</span></span>
+    </a>
+    <a class="acell" href="https://sottosopra.com/programma/" data-umami-event="programma-click" data-umami-event-canale="__SRC__">
+      <span class="aw">Programma completo <span class="acar">&rarr;</span></span>
+    </a>
+  </div>
 
   <div class="logo-bottom">
     <img src="/brand/sottosopra-logo-black.png" alt="Sottosopra">
@@ -176,5 +218,28 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 
 <!-- Umami Cloud (cookieless, region UE) — pageview per canale + click-out DICE -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="8b654c64-e3bb-4076-96a2-51ddfd53858f" data-domains="tickets.sottosopra.com"></script>
+
+<script>
+(function(){
+  var s=new Date(2026,6,30), e=new Date(2026,7,2,23,59), n=new Date();
+  var w=document.getElementById('cdwrap'); if(!w) return;
+  var w1=document.getElementById('cdw1'), w2=document.getElementById('cdw2'), reel=document.getElementById('cdreel');
+  var d=Math.ceil((s-n)/864e5);
+  if(n>=s&&n<=e){ w.innerHTML='<div class="cdrow" style="justify-content:center">IL FESTIVAL È ORA</div>'; w.hidden=false; return; }
+  if(d<1||d>45) return;
+  w1.textContent = d===1 ? 'MANCA' : 'MANCANO';
+  w2.textContent = d===1 ? 'GIORNO' : 'GIORNI';
+  w.hidden=false;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){ reel.innerHTML='<span>'+d+'</span>'; return; }
+  var from=Math.min(d+18,60), html='';
+  for(var x=from;x>=d;x--) html+='<span>'+x+'</span>';
+  reel.innerHTML=html;
+  var rh=reel.children[0].offsetHeight;
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){
+    reel.style.transition='transform .9s cubic-bezier(.15,.7,.2,1)';
+    reel.style.transform='translateY(-'+((from-d)*rh)+'px)';
+  });});
+})();
+</script>
 </body>
 </html>
