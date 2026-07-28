@@ -14,10 +14,13 @@ Stessa landing, declinata per **scopo/canale**, così sappiamo da dove arrivano 
 | `/ig-story` | Sticker link nelle IG stories | `landing-igstory` | — (link sticker) |
 | `/sito` | CTA "Biglietti" del sito sottosopra.com | canale sito | — |
 | `/nl-1` | Prima newsletter inviata (link nel corpo mail) | canale nl-1 | — |
+| `/ingresso` | **QR all'ingresso del festival** (contenuto cambiato ogni giorno) | ⚠️ placeholder (eventi diretti) | ✅ `qr/ingresso.svg` |
 | `/newsletter` | Iscrizione newsletter (form Brevo, per storie IG) | — (nessun biglietto) | — |
 | `/` | Accesso diretto / generico | placeholder (eventi diretti) | — |
 
 Convenzione newsletter: ogni invio importante può avere il suo canale `nl-N` (nl-2, nl-3, …) con link DICE dedicati → si traccia la resa di ogni singola mail.
+
+**`/ingresso`**: pensata per essere **riscritta ogni giorno del festival** (es. "stasera suona X", info pratiche, meteo, programma del giorno). Il QR stampato non cambia mai: si modifica solo il contenuto della pagina e si pusha. Oggi è identica alle altre landing, con link evento diretti — quando esistono i 4 `landing-ingresso` in MIO vanno cablati qui.
 
 - I QR puntano al **nostro** dominio → i link DICE dietro si cambiano senza ristampare.
 - Attribuzione acquisti per canale = **link.dice.fm nativi** (report in MIO, export CSV, ~1 mese di ritardo, cecità-app da scontare). Aperture/click per path = **Umami Cloud** (cookieless, UE).
