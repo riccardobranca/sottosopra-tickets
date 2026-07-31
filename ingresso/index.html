@@ -23,16 +23,6 @@ body{
 .wrap{width:100%; max-width:480px; margin:0 auto; display:flex; flex-direction:column}
 a{color:inherit; text-decoration:none}
 
-/* HOOK — grande testo giustificato edge-to-edge (firma manifesto ufficiale) */
-.hook{
-  font-family:var(--display); font-feature-settings:var(--ss); font-weight:900; text-transform:uppercase;
-  font-size:clamp(2rem,10.5vw,3.2rem); line-height:1.06; letter-spacing:-.012em;
-  text-align:justify; text-align-last:justify; /* fallback senza JS */
-  margin-bottom:22px;
-}
-.hook .ln{display:flex; justify-content:space-between; align-items:baseline; line-height:1.06}
-.hook .ln .sp{flex:0 0 .3em}
-
 /* INTRO — date sx / luogo dx + wordmark SOTTOSOPRA ruotato 180° (sotto la frase) */
 .intro{margin-bottom:34px}
 .meta{display:flex; justify-content:space-between; align-items:flex-start; gap:16px;
@@ -83,9 +73,6 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 .day.sm .dsub{font-size:.76rem}
 .day.sm .act{font-size:.66rem}
 
-/* BENVENUTO — una riga sola, lettere distribuite (gesto di brand) */
-.hook-one{font-size:clamp(2.6rem,15vw,4.6rem); margin-bottom:20px}
-
 /* BOTTONI GRANDI — il venerdì domina, il resto resta visibile */
 .day.big{flex-direction:column; align-items:stretch; gap:9px; padding:20px 18px}
 .day.big .l{gap:5px}
@@ -96,12 +83,22 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 .day.big .arr{font-size:1.2rem}
 .day.fp.big .dlabel{font-size:clamp(1.8rem,8.6vw,2.6rem)}
 .day.today .kick{font-size:.78rem; letter-spacing:.18em}
+
+/* BENVENUTƏ — SoSo26 a tracciatura naturale, riempie la riga (niente distribuzione) */
+.welcome{
+  font-family:var(--display); font-feature-settings:var(--ss); font-weight:900;
+  text-transform:uppercase; font-size:clamp(2.3rem,13.6vw,4.25rem); line-height:1;
+  letter-spacing:-.012em; margin-bottom:20px;
+}
+/* Full Pass compatto: nero e riconoscibile, ma sotto al venerdì */
+.day.fp .dlabel{font-size:1.5rem}
+.day.fp .dnote{font-size:.72rem; margin-top:3px}
 </style>
 </head>
 <body>
 <main class="wrap">
 
-  <h1 class="hook hook-one" aria-label="Benvenuto">Benvenuto</h1>
+  <h1 class="welcome">Benvenutə</h1>
 
   <div class="intro">
     <div class="meta">
@@ -122,7 +119,7 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
     </a>
   </nav>
 
-  <a class="day fp big" href="https://www.ticketnation.it/lkp/4ffc5t2509/sottosopra-festival-2026-31-lug"
+  <a class="day fp" href="https://www.ticketnation.it/lkp/4ffc5t2509/sottosopra-festival-2026-31-lug"
      data-umami-event="ticket-click" data-umami-event-canale="ingresso" data-umami-event-giorno="fullpass">
     <span class="l"><span class="dlabel">Full Pass</span><span class="dsub">Tutte le serate</span><span class="dnote">Nella pagina scegli “Posto unico · FULL PASS 3 DAYS”</span></span>
     <span class="act">Biglietti <span class="arr">&#8599;</span></span>
@@ -148,34 +145,6 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
   </div>
 
 </main>
-
-<!-- Distribuisce le lettere della frase grande edge-to-edge, riga per riga (cross-browser, anche Safari) -->
-<script>
-(function(){
-  function esc(c){ return c==='&'?'&amp;':c==='<'?'&lt;':c; }
-  function build(el){
-    try{
-      var text = el.getAttribute('data-text');
-      if(text===null){ text = el.textContent.replace(/\s+/g,' ').trim(); el.setAttribute('data-text', text); }
-      // pass 1: parole inline → rilevo le righe reali (dopo il wrapping)
-      el.innerHTML = text.split(' ').map(function(w){ return '<span class="w">'+w+'</span>'; }).join(' ');
-      var ws = [].slice.call(el.children), lines=[], cur=[], top=null;
-      ws.forEach(function(s){ var t=s.offsetTop; if(top===null)top=t; if(t-top>2){lines.push(cur);cur=[];top=t;} cur.push(s.textContent); });
-      if(cur.length) lines.push(cur);
-      // pass 2: ogni riga = flex di lettere, giustificata edge-to-edge
-      el.innerHTML = lines.map(function(lw){
-        var line = lw.join(' '), inner='';
-        for(var k=0;k<line.length;k++){ var c=line[k]; inner += (c===' ') ? '<span class="sp"></span>' : '<span>'+esc(c)+'</span>'; }
-        return '<span class="ln">'+inner+'</span>';
-      }).join('');
-    }catch(e){ var d=el.getAttribute('data-text'); if(d) el.textContent=d; }
-  }
-  function run(){ [].forEach.call(document.querySelectorAll('.hook'), build); }
-  function ready(){ run(); if(document.fonts&&document.fonts.ready){ document.fonts.ready.then(run); } }
-  if(document.readyState!=='loading') ready(); else addEventListener('DOMContentLoaded', ready);
-  var tm; addEventListener('resize', function(){ clearTimeout(tm); tm=setTimeout(run,150); });
-})();
-</script>
 
 <!-- Umami Cloud (cookieless, region UE) — pageview per canale + click-out DICE -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="8b654c64-e3bb-4076-96a2-51ddfd53858f" data-domains="tickets.sottosopra.com"></script>
