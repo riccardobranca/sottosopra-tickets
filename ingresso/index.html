@@ -57,8 +57,8 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 
 /* Full Pass = riga come le serate, nera (stile home sito main) */
-.fp{margin-top:11px; background:var(--fg); color:var(--bg); border-color:var(--fg)}
-.fp:hover,.fp:focus-visible{background:var(--bg); color:var(--fg)}
+.fp{margin-top:11px; background:var(--bg); color:var(--fg); border-color:var(--fg)}
+.fp:hover,.fp:focus-visible{background:var(--fg); color:var(--bg)}
 
 /* ritmo verticale: 11px intra-blocco · 22px tra sezioni */
 .logo-bottom{margin-top:22px}
@@ -93,12 +93,21 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 /* Full Pass compatto: nero e riconoscibile, ma sotto al venerdì */
 .day.fp .dlabel{font-size:1.5rem}
 .day.fp .dnote{font-size:.72rem; margin-top:3px}
+
+/* BENVENUTƏ giustificata edge-to-edge */
+.welcome .jw{display:flex; justify-content:space-between; align-items:baseline}
+
+/* OGGI = bottone nero (azione dominante) · Full Pass bianco */
+.day.today{background:var(--fg); color:var(--bg); border-color:var(--fg)}
+.day.today:hover,.day.today:focus-visible{background:var(--bg); color:var(--fg)}
+.day.today .kick{color:inherit; opacity:.7}
+.day.fp .dnote{color:inherit; opacity:.7}
 </style>
 </head>
 <body>
 <main class="wrap">
 
-  <h1 class="welcome">Benvenutə</h1>
+  <h1 class="welcome" aria-label="Benvenutə"><span aria-hidden="true" class="jw"><span>B</span><span>E</span><span>N</span><span>V</span><span>E</span><span>N</span><span>U</span><span>T</span><span>Ə</span></span></h1>
 
   <div class="intro">
     <div class="meta">
