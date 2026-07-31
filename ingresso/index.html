@@ -58,33 +58,6 @@ a{color:inherit; text-decoration:none}
 .day .dsub{font-size:.86rem; text-transform:uppercase; letter-spacing:.01em; font-weight:500; line-height:1.3}
 .day .act{font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; white-space:nowrap; display:inline-flex; align-items:center; gap:6px}
 .day .arr{font-family:var(--display); font-feature-settings:var(--ss); font-weight:900; font-size:.95rem}
-.fullpass{
-  display:flex; align-items:center; justify-content:center; gap:8px; margin-top:11px;
-  border:1.5px solid var(--fg); background:var(--fg); color:var(--bg); padding:15px; min-height:58px;
-  font-size:.82rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; transition:opacity .18s;
-}
-.fullpass:hover,.fullpass:focus-visible{opacity:.82}
-
-.more{display:flex; justify-content:center; gap:24px; flex-wrap:wrap; padding-top:24px}
-.more a{font-size:.76rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); padding:6px 2px; transition:color .18s}
-.more a:hover,.more a:focus-visible{color:var(--fg)}
-
-/* Divisore biglietti ↔ workshop (spesso quanto il bordo dei bottoni) */
-.divider{border:none; border-top:1.5px solid var(--fg); margin:20px 0}
-
-/* WORKSHOP — iscrizioni Ticket Tailor: bottone SoSo26 grande, testo giustificato edge-to-edge (firma di brand) */
-.wsbtn{
-  display:block; padding:15px 17px;
-  border:1.5px solid var(--fg); background:var(--bg); color:var(--fg);
-  transition:background .18s ease, color .18s ease;
-}
-.wsbtn:hover,.wsbtn:focus-visible{background:var(--fg); color:var(--bg)}
-.wsbtn .jb{
-  display:flex; justify-content:space-between; align-items:baseline;
-  font-family:var(--display); font-feature-settings:var(--ss); font-weight:900;
-  text-transform:uppercase; font-size:1.4rem; line-height:1; letter-spacing:-.01em;
-}
-.wsbtn .jb .sp{flex:0 0 .3em}
 
 /* LOGO VERO in fondo, sotto i link (stessa distanza del gap link↔full pass) */
 .logo-bottom{margin-top:24px; text-align:center}
@@ -93,25 +66,11 @@ a{color:inherit; text-decoration:none}
 a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 
-.actions{display:grid; grid-template-columns:1fr 1fr; gap:11px; margin-top:11px}
-.acell{display:flex; flex-direction:column; gap:6px; align-items:flex-start; justify-content:center;
-  border:1.5px solid var(--fg); padding:16px 15px; min-height:76px;
-  transition:background .18s ease,color .18s ease}
-.acell:hover,.acell:focus-visible{background:var(--fg); color:var(--bg)}
-.acell .aw{font-family:var(--display); font-feature-settings:var(--ss); font-weight:900;
-  text-transform:uppercase; font-size:1.25rem; line-height:1}
-.acell .asub{font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em}
-
 /* Full Pass = riga come le serate, nera (stile home sito main) */
 .fp{margin-top:11px; background:var(--fg); color:var(--bg); border-color:var(--fg)}
 .fp:hover,.fp:focus-visible{background:var(--bg); color:var(--fg)}
 
-/* celle azioni: copy unico con freccia */
-.acell .aw{font-size:1.15rem; line-height:1.2}
-.acell .acar{font-family:var(--display)}
-
 /* ritmo verticale: 11px intra-blocco · 22px tra sezioni */
-.actions{margin-top:22px}
 .logo-bottom{margin-top:22px}
 
 /* INGRESSO — gerarchia: oggi + full pass grandi, altre serate piccole */
@@ -123,12 +82,26 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 .day.sm .dlabel{font-size:1.05rem}
 .day.sm .dsub{font-size:.76rem}
 .day.sm .act{font-size:.66rem}
+
+/* BENVENUTO — una riga sola, lettere distribuite (gesto di brand) */
+.hook-one{font-size:clamp(2.6rem,15vw,4.6rem); margin-bottom:20px}
+
+/* BOTTONI GRANDI — il venerdì domina, il resto resta visibile */
+.day.big{flex-direction:column; align-items:stretch; gap:9px; padding:20px 18px}
+.day.big .l{gap:5px}
+.day.big .dlabel{font-size:clamp(2.1rem,10.5vw,3.1rem)}
+.day.big .dsub{font-size:.95rem; line-height:1.35}
+.day.big .act{justify-content:space-between; font-size:1rem; letter-spacing:.12em;
+  border-top:1.5px solid currentColor; padding-top:13px; width:100%}
+.day.big .arr{font-size:1.2rem}
+.day.fp.big .dlabel{font-size:clamp(1.8rem,8.6vw,2.6rem)}
+.day.today .kick{font-size:.78rem; letter-spacing:.18em}
 </style>
 </head>
 <body>
 <main class="wrap">
 
-  <h1 class="hook" aria-label="Non hai ancora preso i biglietti?">Non hai ancora preso i biglietti?</h1>
+  <h1 class="hook hook-one" aria-label="Benvenuto">Benvenuto</h1>
 
   <div class="intro">
     <div class="meta">
@@ -142,14 +115,14 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
        Il Full Pass usa lo stesso link del venerdì: sulla pagina si sceglie
        il biglietto "POSTO UNICO - ABBONAMENTO 3 DAYS". -->
   <nav class="days" aria-label="Biglietti">
-    <a class="day" href="https://www.ticketnation.it/lkp/4ffc5t2509/sottosopra-festival-2026-31-lug"
+    <a class="day big today" href="https://www.ticketnation.it/lkp/4ffc5t2509/sottosopra-festival-2026-31-lug"
        data-umami-event="ticket-click" data-umami-event-canale="ingresso" data-umami-event-giorno="venerdi">
       <span class="l"><span class="kick">Oggi</span><span class="dlabel">Ven 31 Lug</span><span class="dsub">Degheįo · Generic Animal · Krano · Cavalli Mongoli</span></span>
       <span class="act">Biglietti <span class="arr">&#8599;</span></span>
     </a>
   </nav>
 
-  <a class="day fp" href="https://www.ticketnation.it/lkp/4ffc5t2509/sottosopra-festival-2026-31-lug"
+  <a class="day fp big" href="https://www.ticketnation.it/lkp/4ffc5t2509/sottosopra-festival-2026-31-lug"
      data-umami-event="ticket-click" data-umami-event-canale="ingresso" data-umami-event-giorno="fullpass">
     <span class="l"><span class="dlabel">Full Pass</span><span class="dsub">Tutte le serate</span><span class="dnote">Nella pagina scegli “Posto unico · FULL PASS 3 DAYS”</span></span>
     <span class="act">Biglietti <span class="arr">&#8599;</span></span>
@@ -169,15 +142,6 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
       <span class="act">Biglietti <span class="arr">&#8599;</span></span>
     </a>
   </nav>
-
-  <div class="actions">
-    <a class="acell" href="https://www.tickettailor.com/events/sottosopra" data-umami-event="workshop-click" data-umami-event-canale="ingresso">
-      <span class="aw">Iscrizione workshop <span class="acar">&rarr;</span></span>
-    </a>
-    <a class="acell" href="https://sottosopra.com/programma/" data-umami-event="programma-click" data-umami-event-canale="ingresso">
-      <span class="aw">Programma completo <span class="acar">&rarr;</span></span>
-    </a>
-  </div>
 
   <div class="logo-bottom">
     <img src="/brand/sottosopra-logo-black.png" alt="Sottosopra">
