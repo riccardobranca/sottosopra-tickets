@@ -118,12 +118,14 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
   </div>
 
   <!-- BIGLIETTI AL CANCELLO → TicketNation (vendita in autonomia all'ingresso).
-       Il Full Pass usa lo stesso link del venerdì: sulla pagina si sceglie
+       GIORNATA CORRENTE: sabato 1 agosto. Ogni giorno va spostato il blocco nero
+       "Oggi" sulla serata in corso e tolta quella passata.
+       Il Full Pass usa il link del venerdì: sulla pagina si sceglie
        il biglietto "POSTO UNICO - ABBONAMENTO 3 DAYS". -->
   <nav class="days" aria-label="Biglietti">
-    <a class="day big today" href="https://www.ticketnation.it/lkp/4ffc5t2509/sottosopra-festival-2026-31-lug"
-       data-umami-event="ticket-click" data-umami-event-canale="ingresso" data-umami-event-giorno="venerdi">
-      <span class="l"><span class="kick">Oggi</span><span class="dlabel">Ven 31 Lug</span><span class="dsub">Degheįo · Generic Animal · Krano · Cavalli Mongoli</span></span>
+    <a class="day big today" href="https://www.ticketnation.it/lkp/4ffc5t250b/sottosopra-festival-2026-1-ago"
+       data-umami-event="ticket-click" data-umami-event-canale="ingresso" data-umami-event-giorno="sabato">
+      <span class="l"><span class="kick">Oggi</span><span class="dlabel">Sab 01 Ago</span><span class="dsub">Popa · Vendredi sur Mer · Faccianuvola</span></span>
       <span class="act">Biglietti <span class="arr">&#8599;</span></span>
     </a>
   </nav>
@@ -134,14 +136,9 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
     <span class="act">Biglietti <span class="arr">&#8599;</span></span>
   </a>
 
-  <p class="seclabel">Le altre serate</p>
+  <p class="seclabel">Domani</p>
 
-  <nav class="days days-sm" aria-label="Biglietti altre serate">
-    <a class="day sm" href="https://www.ticketnation.it/lkp/4ffc5t250b/sottosopra-festival-2026-1-ago"
-       data-umami-event="ticket-click" data-umami-event-canale="ingresso" data-umami-event-giorno="sabato">
-      <span class="l"><span class="dlabel">Sab 01 Ago</span><span class="dsub">Popa · Vendredi sur Mer · Faccianuvola</span></span>
-      <span class="act">Biglietti <span class="arr">&#8599;</span></span>
-    </a>
+  <nav class="days days-sm" aria-label="Biglietti di domani">
     <a class="day sm" href="https://www.ticketnation.it/lkp/4ffc5t250d/sottosopra-festival-2026-2-ago"
        data-umami-event="ticket-click" data-umami-event-canale="ingresso" data-umami-event-giorno="domenica">
       <span class="l"><span class="dlabel">Dom 02 Ago</span><span class="dsub">Elasi · Jesse the Faccio · Auroro Borealo · Ex-Otago</span></span>
