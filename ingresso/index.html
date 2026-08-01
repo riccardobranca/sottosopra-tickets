@@ -49,23 +49,18 @@ a{color:inherit; text-decoration:none}
 .day .act{font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; white-space:nowrap; display:inline-flex; align-items:center; gap:6px}
 .day .arr{font-family:var(--display); font-feature-settings:var(--ss); font-weight:900; font-size:.95rem}
 
-/* LOGO VERO in fondo, sotto i link (stessa distanza del gap link↔full pass) */
+/* LOGO in fondo */
 .logo-bottom{margin-top:24px; text-align:center}
 .logo-bottom img{height:24px; width:auto}
 
 a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 
-/* Full Pass = riga come le serate, nera (stile home sito main) */
-.fp{margin-top:11px; background:var(--bg); color:var(--fg); border-color:var(--fg)}
-.fp:hover,.fp:focus-visible{background:var(--fg); color:var(--bg)}
-
 /* ritmo verticale: 11px intra-blocco · 22px tra sezioni */
 .logo-bottom{margin-top:22px}
 
-/* INGRESSO — gerarchia: oggi + full pass grandi, altre serate piccole */
+/* INGRESSO — gerarchia: la serata di oggi domina, le altre restano visibili */
 .kick{font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.14em; color:var(--muted)}
-.fp .dnote{font-size:.72rem; font-weight:500; line-height:1.35; opacity:.75; margin-top:2px}
 .seclabel{margin:22px 0 8px; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.14em; color:var(--muted)}
 .days-sm{gap:8px}
 .day.sm{min-height:0; padding:12px 15px}
@@ -73,7 +68,7 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 .day.sm .dsub{font-size:.76rem}
 .day.sm .act{font-size:.66rem}
 
-/* BOTTONI GRANDI — il venerdì domina, il resto resta visibile */
+/* BOTTONE GRANDE — la serata in corso */
 .day.big{flex-direction:column; align-items:stretch; gap:9px; padding:20px 18px}
 .day.big .l{gap:5px}
 .day.big .dlabel{font-size:clamp(2.1rem,10.5vw,3.1rem)}
@@ -81,7 +76,6 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 .day.big .act{justify-content:space-between; font-size:1rem; letter-spacing:.12em;
   border-top:1.5px solid currentColor; padding-top:13px; width:100%}
 .day.big .arr{font-size:1.2rem}
-.day.fp.big .dlabel{font-size:clamp(1.8rem,8.6vw,2.6rem)}
 .day.today .kick{font-size:.78rem; letter-spacing:.18em}
 
 /* BENVENUTƏ — SoSo26 a tracciatura naturale, riempie la riga (niente distribuzione) */
@@ -90,18 +84,13 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
   text-transform:uppercase; font-size:clamp(2.3rem,13.6vw,4.25rem); line-height:1;
   letter-spacing:-.012em; margin-bottom:20px;
 }
-/* Full Pass compatto: nero e riconoscibile, ma sotto al venerdì */
-.day.fp .dlabel{font-size:1.5rem}
-.day.fp .dnote{font-size:.72rem; margin-top:3px}
-
 /* BENVENUTƏ giustificata edge-to-edge */
 .welcome .jw{display:flex; justify-content:space-between; align-items:baseline}
 
-/* OGGI = bottone nero (azione dominante) · Full Pass bianco */
+/* OGGI = bottone nero (azione dominante) */
 .day.today{background:var(--fg); color:var(--bg); border-color:var(--fg)}
 .day.today:hover,.day.today:focus-visible{background:var(--bg); color:var(--fg)}
 .day.today .kick{color:inherit; opacity:.7}
-.day.fp .dnote{color:inherit; opacity:.7}
 </style>
 </head>
 <body>
@@ -120,8 +109,7 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
   <!-- BIGLIETTI AL CANCELLO → TicketNation (vendita in autonomia all'ingresso).
        GIORNATA CORRENTE: sabato 1 agosto. Ogni giorno va spostato il blocco nero
        "Oggi" sulla serata in corso e tolta quella passata.
-       Il Full Pass usa il link del venerdì: sulla pagina si sceglie
-       il biglietto "POSTO UNICO - ABBONAMENTO 3 DAYS". -->
+       Full Pass rimosso dal 1 agosto: restano meno serate del pass 3 giorni. -->
   <nav class="days" aria-label="Biglietti">
     <a class="day big today" href="https://www.ticketnation.it/lkp/4ffc5t250b/sottosopra-festival-2026-1-ago"
        data-umami-event="ticket-click" data-umami-event-canale="ingresso" data-umami-event-giorno="sabato">
@@ -129,12 +117,6 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
       <span class="act">Biglietti <span class="arr">&#8599;</span></span>
     </a>
   </nav>
-
-  <a class="day fp" href="https://www.ticketnation.it/lkp/4ffc5t2509/sottosopra-festival-2026-31-lug"
-     data-umami-event="ticket-click" data-umami-event-canale="ingresso" data-umami-event-giorno="fullpass">
-    <span class="l"><span class="dlabel">Full Pass</span><span class="dsub">Tutte le serate</span><span class="dnote">Nella pagina scegli “Posto unico · FULL PASS 3 DAYS”</span></span>
-    <span class="act">Biglietti <span class="arr">&#8599;</span></span>
-  </a>
 
   <p class="seclabel">Domani</p>
 
