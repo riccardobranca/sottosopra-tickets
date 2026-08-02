@@ -128,6 +128,27 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 /* ritmo verticale: 11px intra-blocco · 22px tra sezioni */
 .actions{margin-top:22px}
 .logo-bottom{margin-top:22px}
+
+/* ULTIMA SERATA — serate concluse (non cliccabili, barrate) + oggi in evidenza */
+.day.past{border-color:var(--line); color:var(--muted); min-height:0; padding:12px 15px; cursor:default}
+.day.past:hover{background:var(--bg); color:var(--muted)}
+.day.past .dlabel{font-size:1.05rem; text-decoration:line-through}
+.day.past .dsub{font-size:.74rem}
+.day.past .act{font-size:.66rem; letter-spacing:.1em}
+.day.big{margin-top:22px; flex-direction:column; align-items:stretch; gap:11px; padding:20px 18px;
+  background:var(--fg); color:var(--bg); border-color:var(--fg)}
+.day.big:hover,.day.big:focus-visible{background:var(--bg); color:var(--fg)}
+.day.big .l{gap:8px}
+.day.big .kick{font-size:.74rem; letter-spacing:.18em; color:inherit; opacity:.7}
+.day.big .dlabel{font-size:clamp(2.1rem,10.5vw,3.1rem)}
+.day.big .act{justify-content:space-between; font-size:1rem; letter-spacing:.12em;
+  border-top:1.5px solid currentColor; padding-top:13px; width:100%}
+.day.big .arr{font-size:1.2rem}
+.prog{display:flex; flex-direction:column; gap:6px}
+.prow{display:flex; gap:12px; align-items:baseline}
+.pt{flex:0 0 3.4em; font-size:.84rem; font-weight:700; opacity:.65; font-variant-numeric:tabular-nums}
+.pn{font-size:1.02rem; line-height:1.25; text-transform:uppercase; letter-spacing:.01em}
+.actions{grid-template-columns:1fr}
 </style>
 </head>
 <body>
@@ -149,36 +170,42 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 
   <!-- BOTTONI → DICE. Attribuzione canale = link.dice.fm nativi (uno per canale×evento, da MIO › Marketing).
        Ora URL evento diretti (placeholder funzionante) → sostituire coi link.dice.fm del canale ig-story. -->
-  <nav class="days" aria-label="Biglietti per giornata">
-    <a class="day" href="https://link.dice.fm/Y89a9e686071"
-       data-umami-event="dice-click" data-umami-event-canale="ig-story" data-umami-event-giorno="venerdi">
+  <nav class="days" aria-label="Serate concluse">
+    <div class="day past">
       <span class="l"><span class="dlabel">Ven 31 Lug</span><span class="dsub">Degheįo · Generic Animal · Krano · Cavalli Mongoli</span></span>
-      <span class="act">Biglietti <span class="arr">↗</span></span>
-    </a>
-    <a class="day" href="https://link.dice.fm/h8d5f387229a"
-       data-umami-event="dice-click" data-umami-event-canale="ig-story" data-umami-event-giorno="sabato">
+      <span class="act">Conclusa</span>
+    </div>
+    <div class="day past">
       <span class="l"><span class="dlabel">Sab 01 Ago</span><span class="dsub">Popa · Faccianuvola</span></span>
-      <span class="act">Biglietti <span class="arr">↗</span></span>
-    </a>
-    <a class="day" href="https://link.dice.fm/W9bc23e3d063"
-       data-umami-event="dice-click" data-umami-event-canale="ig-story" data-umami-event-giorno="domenica">
-      <span class="l"><span class="dlabel">Dom 02 Ago</span><span class="dsub">Elasi · Jesse the Faccio · Auroro Borealo · Ex-Otago</span></span>
-      <span class="act">Biglietti <span class="arr">↗</span></span>
-    </a>
+      <span class="act">Conclusa</span>
+    </div>
+    <div class="day past">
+      <span class="l"><span class="dlabel">Full Pass</span><span class="dsub">Tutte le serate</span></span>
+      <span class="act">Non disponibile</span>
+    </div>
   </nav>
 
-  <a class="day fp" href="https://link.dice.fm/a0a717a7e6db"
-     data-umami-event="dice-click" data-umami-event-canale="ig-story" data-umami-event-giorno="fullpass">
-    <span class="l"><span class="dlabel">Full Pass</span><span class="dsub">Tutte le serate</span></span>
+  <a class="day big" href="https://link.dice.fm/W9bc23e3d063"
+     data-umami-event="dice-click" data-umami-event-canale="ig-story" data-umami-event-giorno="domenica">
+    <span class="l">
+      <span class="kick">Oggi · ultima serata</span>
+      <span class="dlabel">Dom 02 Ago</span>
+      <span class="prog">
+        <span class="prow"><span class="pt">17:00</span><span class="pn">Laboratori per adulti</span></span>
+        <span class="prow"><span class="pt">18:00</span><span class="pn">Hip-hop e alieni · Dr. Pira</span></span>
+        <span class="prow"><span class="pt">19:00</span><span class="pn">Elasi · dj set</span></span>
+        <span class="prow"><span class="pt">19:00</span><span class="pn">Libri Brutti · Auroro Borealo</span></span>
+        <span class="prow"><span class="pt">20:00</span><span class="pn">Jesse the Faccio</span></span>
+        <span class="prow"><span class="pt">21:00</span><span class="pn">Auroro Borealo</span></span>
+        <span class="prow"><span class="pt">22:30</span><span class="pn">Ex-Otago</span></span>
+      </span>
+    </span>
     <span class="act">Biglietti <span class="arr">&#8599;</span></span>
   </a>
 
   <div class="actions">
     <a class="acell" href="https://www.tickettailor.com/events/sottosopra" data-umami-event="workshop-click" data-umami-event-canale="ig-story">
       <span class="aw">Iscrizione workshop <span class="acar">&rarr;</span></span>
-    </a>
-    <a class="acell" href="https://sottosopra.com/programma/" data-umami-event="programma-click" data-umami-event-canale="ig-story">
-      <span class="aw">Programma completo <span class="acar">&rarr;</span></span>
     </a>
   </div>
 

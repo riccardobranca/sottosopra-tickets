@@ -91,6 +91,13 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 .day.today{background:var(--fg); color:var(--bg); border-color:var(--fg)}
 .day.today:hover,.day.today:focus-visible{background:var(--bg); color:var(--fg)}
 .day.today .kick{color:inherit; opacity:.7}
+
+/* Programma della serata dentro il bottone */
+.prog{display:flex; flex-direction:column; gap:6px}
+.prow{display:flex; gap:12px; align-items:baseline}
+.pt{flex:0 0 3.4em; font-size:.86rem; font-weight:700; opacity:.65; font-variant-numeric:tabular-nums}
+.pn{font-size:1.05rem; line-height:1.25; text-transform:uppercase}
+.day.big .l{gap:9px}
 </style>
 </head>
 <body>
@@ -107,26 +114,25 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
   </div>
 
   <!-- BIGLIETTI AL CANCELLO → TicketNation (vendita in autonomia all'ingresso).
-       GIORNATA CORRENTE: sabato 1 agosto. Ogni giorno va spostato il blocco nero
-       "Oggi" sulla serata in corso e tolta quella passata.
-       Full Pass rimosso dal 1 agosto: restano meno serate del pass 3 giorni. -->
-  <nav class="days" aria-label="Biglietti">
-    <a class="day big today" href="https://www.ticketnation.it/lkp/4ffc5t250b/sottosopra-festival-2026-1-ago"
-       data-umami-event="ticket-click" data-umami-event-canale="ingresso" data-umami-event-giorno="sabato">
-      <span class="l"><span class="kick">Oggi</span><span class="dlabel">Sab 01 Ago</span><span class="dsub">Popa · Faccianuvola</span></span>
-      <span class="act">Biglietti <span class="arr">&#8599;</span></span>
-    </a>
-  </nav>
-
-  <p class="seclabel">Domani</p>
-
-  <nav class="days days-sm" aria-label="Biglietti di domani">
-    <a class="day sm" href="https://www.ticketnation.it/lkp/4ffc5t250d/sottosopra-festival-2026-2-ago"
-       data-umami-event="ticket-click" data-umami-event-canale="ingresso" data-umami-event-giorno="domenica">
-      <span class="l"><span class="dlabel">Dom 02 Ago</span><span class="dsub">Elasi · Jesse the Faccio · Auroro Borealo · Ex-Otago</span></span>
-      <span class="act">Biglietti <span class="arr">&#8599;</span></span>
-    </a>
-  </nav>
+       GIORNATA CORRENTE: domenica 2 agosto, ultima serata.
+       Venerdì e sabato conclusi, Full Pass non più disponibile. -->
+  <a class="day big today" href="https://www.ticketnation.it/lkp/4ffc5t250d/sottosopra-festival-2026-2-ago"
+     data-umami-event="ticket-click" data-umami-event-canale="ingresso" data-umami-event-giorno="domenica">
+    <span class="l">
+      <span class="kick">Oggi · ultima serata</span>
+      <span class="dlabel">Dom 02 Ago</span>
+      <span class="prog">
+        <span class="prow"><span class="pt">17:00</span><span class="pn">Laboratori per adulti</span></span>
+        <span class="prow"><span class="pt">18:00</span><span class="pn">Hip-hop e alieni · Dr. Pira</span></span>
+        <span class="prow"><span class="pt">19:00</span><span class="pn">Elasi · dj set</span></span>
+        <span class="prow"><span class="pt">19:00</span><span class="pn">Libri Brutti · Auroro Borealo</span></span>
+        <span class="prow"><span class="pt">20:00</span><span class="pn">Jesse the Faccio</span></span>
+        <span class="prow"><span class="pt">21:00</span><span class="pn">Auroro Borealo</span></span>
+        <span class="prow"><span class="pt">22:30</span><span class="pn">Ex-Otago</span></span>
+      </span>
+    </span>
+    <span class="act">Biglietti <span class="arr">&#8599;</span></span>
+  </a>
 
   <div class="logo-bottom">
     <img src="/brand/sottosopra-logo-black.png" alt="Sottosopra">
