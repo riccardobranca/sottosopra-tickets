@@ -58,19 +58,6 @@ a{color:inherit; text-decoration:none}
 .day .dsub{font-size:.86rem; text-transform:uppercase; letter-spacing:.01em; font-weight:500; line-height:1.3}
 .day .act{font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; white-space:nowrap; display:inline-flex; align-items:center; gap:6px}
 .day .arr{font-family:var(--display); font-feature-settings:var(--ss); font-weight:900; font-size:.95rem}
-.fullpass{
-  display:flex; align-items:center; justify-content:center; gap:8px; margin-top:11px;
-  border:1.5px solid var(--fg); background:var(--fg); color:var(--bg); padding:15px; min-height:58px;
-  font-size:.82rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; transition:opacity .18s;
-}
-.fullpass:hover,.fullpass:focus-visible{opacity:.82}
-
-.more{display:flex; justify-content:center; gap:24px; flex-wrap:wrap; padding-top:24px}
-.more a{font-size:.76rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); padding:6px 2px; transition:color .18s}
-.more a:hover,.more a:focus-visible{color:var(--fg)}
-
-/* Divisore biglietti ↔ workshop (spesso quanto il bordo dei bottoni) */
-.divider{border:none; border-top:1.5px solid var(--fg); margin:20px 0}
 
 /* WORKSHOP — iscrizioni Ticket Tailor: bottone SoSo26 grande, testo giustificato edge-to-edge (firma di brand) */
 .wsbtn{
@@ -86,7 +73,7 @@ a{color:inherit; text-decoration:none}
 }
 .wsbtn .jb .sp{flex:0 0 .3em}
 
-/* LOGO VERO in fondo, sotto i link (stessa distanza del gap link↔full pass) */
+/* LOGO in fondo */
 .logo-bottom{margin-top:24px; text-align:center}
 .logo-bottom img{height:24px; width:auto}
 
@@ -110,11 +97,6 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
 .acell:hover,.acell:focus-visible{background:var(--fg); color:var(--bg)}
 .acell .aw{font-family:var(--display); font-feature-settings:var(--ss); font-weight:900;
   text-transform:uppercase; font-size:1.25rem; line-height:1}
-.acell .asub{font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em}
-
-/* Full Pass = riga come le serate, nera (stile home sito main) */
-.fp{margin-top:11px; background:var(--fg); color:var(--bg); border-color:var(--fg)}
-.fp:hover,.fp:focus-visible{background:var(--bg); color:var(--fg)}
 
 /* celle azioni: copy unico con freccia */
 .acell .aw{font-size:1.15rem; line-height:1.2}
@@ -178,10 +160,6 @@ a:focus-visible{outline:2px solid var(--fg); outline-offset:3px}
     <div class="day past">
       <span class="l"><span class="dlabel">Sab 01 Ago</span><span class="dsub">Popa · Faccianuvola</span></span>
       <span class="act">Conclusa</span>
-    </div>
-    <div class="day past">
-      <span class="l"><span class="dlabel">Full Pass</span><span class="dsub">Tutte le serate</span></span>
-      <span class="act">Non disponibile</span>
     </div>
   </nav>
 
